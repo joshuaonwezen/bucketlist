@@ -11,8 +11,14 @@
 </script>
 
 <script>
+	import { score } from '../stores'
 	export let categories;
-	console.log(categories);
+
+	function calculateScore(){
+
+		score.update(score)
+		console.log(score)
+	}
 </script>
 
 <svelte:head>
@@ -20,20 +26,24 @@
 </svelte:head>
 
 <h1 class="text-4xl mb-10 font-extrabold text-center">Tigerpoints</h1>
-
-{#each categories as { name, question }}
-<div class="card text-center shadow-2xl mb-20">
-	<h1>
-		{name}
-	</h1>
-	<div class="card-body flex">
-		{#each question as { name, value }}
-			<p class="text-left">{name}</p>
-			<input type="checkbox" />
-		{/each}
-	</div>
-</div>
-	<!-- <div class="card text-center shadow-2xl mb-20">
+<form>
+	{#each categories as { name, question }}
+		<div class="card text-center shadow-2xl mb-20">
+			<h1 class="card-title">
+				{name}
+			</h1>
+			<div class="card-body flex flex-row flex-wrap mb-4">
+				{#each question as { name, value }}
+					<div class="form-control w-1/3">
+						<label class="cursor-pointer flex p-1">
+							<input type="checkbox" data-value={value} class="checkbox checkbox-primary" />
+							<span class="label-text ml-1">{name}</span>
+						</label>
+					</div>
+				{/each}
+			</div>
+		</div>
+		<!-- <div class="card text-center shadow-2xl mb-20">
 		<figure class="px-10 pt-10">
 			<img src={coverImage.url} alt={`Cover image for ${title}`} />
 		</figure>
@@ -52,4 +62,6 @@
             </div>
         </div>
 	</div> -->
-{/each}
+	{/each}
+	<input type="submit" class="btn" value="Calculate score" on:submit={calculateScore}>
+</form>
