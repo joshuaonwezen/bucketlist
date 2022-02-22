@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>NOVA Blog</title>
+	<title>Tigerpoints</title>
 </svelte:head>
 
 <h1 class="text-4xl font-semibold mb-5">{page.title}</h1>
