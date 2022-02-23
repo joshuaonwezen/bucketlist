@@ -1,10 +1,11 @@
 <script>
+	import { editDetails } from '../stores.js';
 	export let pages;
 </script>
 
-<div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
+<div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content">
 	<div class="px-2 mx-2 navbar-start">
-		<span class="text-lg font-bold"> 🐯 </span>
+		<span class="font-extrabold text-accent"> 🐯 Tigerpoints 🐯 </span>
 	</div>
 	<div class="hidden px-2 mx-2 navbar-center lg:flex">
 		<div class="flex items-stretch">
@@ -14,6 +15,11 @@
 					{title}
 				</a>
 			{/each}
+			<label
+				for="details-modal"
+				on:click={($editDetails = true)}
+				class="btn btn-ghost btn-sm rounded-btn modal-button">Edit details</label
+			>
 		</div>
 	</div>
 	<div class="navbar-end" />
