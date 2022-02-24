@@ -1,0 +1,1 @@
+import{G as c}from"./vendor-1fd8d107.js";const e=(s,r)=>{const{subscribe:t,set:o}=c(r);return{subscribe:t,set:o,useLocalStorage:()=>{const a=localStorage.getItem(s);a&&o(JSON.parse(a)),t(n=>{localStorage.setItem(s,JSON.stringify(n))})}}},l=e("checkedAnswers",[]),d=e("details",{}),S=e("score",0),g=c(!1);export{l as c,d,g as e,S as s};
