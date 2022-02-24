@@ -1,15 +1,11 @@
 <script context="module">
 	export const load = async ({ fetch }) => {
-		const res = await fetch(`./categories.json`);
+		const res = await fetch(`/categories.json`);
 		if (res.ok) {
 			const { categories } = await res.json();
 			return {
 				props: { categories }
 			};
-		} else {
-			return {
-				status: 404
-			}
 		}
 	};
 </script>

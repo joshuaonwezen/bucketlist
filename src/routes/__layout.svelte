@@ -1,15 +1,11 @@
 <script context="module">
 	export const load = async ({ fetch }) => {
-		const res = await fetch('./pages.json');
+		const res = await fetch('/pages.json');
 		if (res.ok) {
 			const { pages } = await res.json();
 			return {
 				props: { pages }
 			};
-		} else {
-			return {
-				status: 404
-			}
 		}
 	};
 </script>
@@ -18,10 +14,10 @@
 	import Nav from '$lib/nav.svelte';
 	import '../app.css';
 
-	export let pages
+	export let pages;
 </script>
 
-<Nav {pages}/>
+<Nav {pages} />
 
 <main class="container max-w-xl mx-auto px-4">
 	<slot />
