@@ -5,9 +5,10 @@
 
 <div class="navbar mb-2 shadow-lg bg-neutral text-neutral-content">
 	<div class="px-2 mx-2 navbar-start">
-		<span class="font-extrabold text-accent"> 🐯 Tigerpoints 🐯 </span>
+		<span class="hidden font-extrabold text-accent lg:block"> 🐯 Tigerpoints 🐯 </span>
+		<span class="font-extrabold text-accent lg:hidden"> 🐯 </span>
 	</div>
-	<div class="hidden px-2 mx-2 navbar-center lg:flex">
+	<div class="px-2 mx-2 navbar-center lg:flex">
 		<div class="flex items-stretch">
 			<a href={`/`} class="btn btn-ghost btn-sm rounded-btn"> Home </a>
 			{#each pages as { title, slug }}
