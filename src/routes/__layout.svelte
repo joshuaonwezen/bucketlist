@@ -6,6 +6,10 @@
 			return {
 				props: { pages }
 			};
+		} else {
+			return {
+				status: 404
+			}
 		}
 	};
 </script>
