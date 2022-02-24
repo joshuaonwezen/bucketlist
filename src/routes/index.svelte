@@ -82,7 +82,7 @@
 <footer
 	class="text-center fixed left-0 bottom-0 w-full p-3 shadow-lg bg-neutral text-neutral-content"
 >
-	<label for="result-modal" class="btn btn-secondary modal-button text-white" on:click={calculateScore}
+	<label for="result-modal" class="btn btn-primary modal-button text-white" on:click={calculateScore}
 		>Calculate Score</label
 	>
 </footer>
