@@ -1,7 +1,7 @@
 <script context="module">
 	export const load = async ({ fetch, page: { params } }) => {
 		const { slug } = params;
-		const res = await fetch(`/pages/${slug}.json`);
+		const res = await fetch(`./pages/${slug}.json`);
 		if (res.ok) {
 			const { page } = await res.json();
 			return {
