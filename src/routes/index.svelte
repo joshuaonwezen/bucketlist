@@ -1,6 +1,4 @@
 <script context="module">
-	import { base } from '$app/paths';
-
 	export const load = async ({ fetch }) => {
 		const res = await fetch(`./categories.json`);
 		if (res.ok) {
