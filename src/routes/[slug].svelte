@@ -13,11 +13,14 @@
 
 <script>
 	export let page;
+	import Modals from '$lib/modals.svelte';
 </script>
 
 <svelte:head>
 	<title>Tigerpoints</title>
 </svelte:head>
+
+<Modals />
 
 <h1 class="text-4xl font-semibold mb-5 m-5">{page.title}</h1>
 
