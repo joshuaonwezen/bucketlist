@@ -19,8 +19,8 @@
 	<title>Tigerpoints</title>
 </svelte:head>
 
-<h1 class="text-4xl font-semibold mb-5">{page.title}</h1>
+<h1 class="text-4xl font-semibold mb-5 m-5">{page.title}</h1>
 
-<article>
+<article class="m-5">
     {@html page.content.html}
 </article>
