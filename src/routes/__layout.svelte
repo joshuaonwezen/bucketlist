@@ -19,6 +19,6 @@
 
 <Nav {pages} />
 
-<main class="container max-w-xl mx-auto px-4">
+<main class="container max-w-xl mx-auto mb-[100px] lg:px-4">
 	<slot />
 </main>

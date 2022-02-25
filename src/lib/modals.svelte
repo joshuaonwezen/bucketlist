@@ -56,7 +56,7 @@
 					name="options"
 					data-title="Male"
 					checked="checked"
-					class="btn"
+					class="btn w-auto"
 				/>
 				<input
 					type="radio"
@@ -64,7 +64,7 @@
 					value="Female"
 					name="options"
 					data-title="Female"
-					class="btn"
+					class="btn w-auto"
 				/>
 				<input
 					type="radio"
@@ -72,7 +72,7 @@
 					value="Other"
 					name="options"
 					data-title="Other"
-					class="btn"
+					class="btn w-auto"
 				/>
 			</div>
 			<input

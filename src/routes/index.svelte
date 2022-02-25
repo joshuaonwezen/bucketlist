@@ -55,13 +55,13 @@
 
 <!-- <h1 class="text-4xl text-accent mb-10 font-extrabold text-center">🐯 Tigerpoints 🐯</h1> -->
 {#each categories as { name, question }}
-	<div class="card text-center shadow-2xl mb-7 mt-7 bg-secondary bg-opacity-10">
+	<div class="card text-center shadow-2xl bg-secondary bg-opacity-10 mb-2 lg:mb-7 lg:mt-7">
 		<h1 class="card-title mt-7 mb-0 uppercase font-extrabold">
 			{name}
 		</h1>
 		<div class="card-body flex flex-row flex-wrap">
 			{#each question as { name, value }}
-				<div class="form-control w-full md:w-1/3">
+				<div class="form-control w-1/3 lg:w-full">
 					<label class="cursor-pointer flex p-1 mb-3">
 						<input
 							type="checkbox"
