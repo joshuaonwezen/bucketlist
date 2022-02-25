@@ -61,7 +61,7 @@
 		</h1>
 		<div class="card-body flex flex-row flex-wrap">
 			{#each question as { name, value }}
-				<div class="form-control w-1/3 lg:w-full">
+				<div class="form-control w-full lg:w-1/3">
 					<label class="cursor-pointer flex p-1 mb-3">
 						<input
 							type="checkbox"
