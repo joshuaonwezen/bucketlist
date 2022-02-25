@@ -53,6 +53,16 @@
 
 <Modals />
 
+<div class="card text-center shadow-2xl bg-secondary bg-opacity-10 m-2 lg:mb-7 lg:mt-7">
+	<h1 class="card-title mt-7 mb-0 text-3xl font-semibold">
+		🍆 Rules 🍑
+	</h1>
+	<div class="card-body flex flex-row flex-wrap">
+		<p>
+			 Sex is defined as masturbating, oral sex  or penetration with another person.  💦
+		</p>
+	</div>
+</div>
 {#each categories as { name, question }}
 	<div class="card text-center shadow-2xl bg-secondary bg-opacity-10 m-2 lg:mb-7 lg:mt-7">
 		<h1 class="card-title mt-7 mb-0 text-3xl font-semibold">
