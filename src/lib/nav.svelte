@@ -25,7 +25,7 @@
 			</label>
 			<ul
 				tabindex="0"
-				class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-36 text-left"
+				class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-44 text-left"
 			>
 				<li>
 					<a href={`/`} class="btn btn-ghost btn-sm rounded-btn h-auto justify-start"> Home </a>
