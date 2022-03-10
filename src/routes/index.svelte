@@ -24,6 +24,9 @@
 		checkedAnswers.useLocalStorage();
 		details.useLocalStorage();
 		score.useLocalStorage();
+
+		//Weird fix for fetch bug
+		fetch = window.fetch.bind(window);
 	});
 
 	//Sum up all the values of the selected inputs
