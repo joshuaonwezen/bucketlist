@@ -16,7 +16,6 @@
 	import Modals from '$lib/modals.svelte';
 	import supabase from '$lib/db';
 
-
 	export let categories;
 
 	onMount(async () => {
@@ -38,7 +37,7 @@
 					document.querySelector(`input[value="${answer}"]`).getAttribute('data-value')
 				))
 		);
-		
+
 		postResults();
 		getScores();
 
@@ -64,7 +63,7 @@
 	const getAverageScore = (score) => {
 		let totalScore = 0;
 		score.map((item) => (totalScore += item.score));
-		const average = totalScore / score.length;
+		const average = Math.round(totalScore / score.length);
 		$averageScore = average;
 	};
 
