@@ -23,3 +23,4 @@ export const checkedAnswers = createWritableStore('checkedAnswers', []);
 export const details = createWritableStore('details', {});
 export const score = createWritableStore('score', 0);
 export const editDetails = writable(false);
+export const averageScore = writable(0);

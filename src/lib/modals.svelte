@@ -1,5 +1,5 @@
 <script>
-	import { details, score, editDetails } from '../stores';
+	import { details, score, averageScore, editDetails } from '../stores';
 	import { onMount } from 'svelte';
 
 	onMount(async () => {
@@ -23,6 +23,7 @@
 		<div class="card-body">
 			<h3 class="font-bold text-lg">Keep it up 🐯</h3>
 			<p class="py-4">You have {$score} tigerpoints.</p>
+			<p class="py-4">The average score for your gender is {$averageScore}</p>
 			<div class="modal-action h-full items-end">
 				<label for="result-modal" class="btn">Click here for hot singles near you!</label>
 			</div>

@@ -11,10 +11,11 @@
 </script>
 
 <script>
-	import { checkedAnswers, details, score } from '../stores';
+	import { checkedAnswers, details, score, averageScore } from '../stores';
 	import { onMount } from 'svelte';
 	import Modals from '$lib/modals.svelte';
 	import supabase from '$lib/db';
+
 
 	export let categories;
 
@@ -35,8 +36,10 @@
 				))
 		);
 
+		getScores();
 		postResults();
-		return $score;
+
+		return score;
 	};
 
 	//Transforms question to id format
@@ -44,13 +47,29 @@
 		return value.toLowerCase().replace(/\//g, '').replace(/ +/g, '-');
 	};
 
+	//Get scores from same gender from db
+	const getScores = async () => {
+		let { data: results, error } = await supabase
+			.from('results')
+			.select('score')
+			.eq('gender', $details.gender);
+
+		const averageScore = getAverageScore(results);
+	};
+
+	//Calculate average score
+	const getAverageScore = (score) => {
+		let totalScore = 0;
+		score.map((item) => (totalScore += item.score));
+		const average = totalScore / score.length;
+		$averageScore = average;
+	};
+
 	//Post results to db
 	const postResults = async () => {
-		const results = await supabase
+		const { data, error } = await supabase
 			.from('results')
-			.insert([{ gender: $details.gender, age: $details.age, score: $score }])
-			.execute();
-		console.log(results);
+			.insert([{ gender: $details.gender, age: $details.age, score: $score }]);
 	};
 
 	// const addToAnswers = (e, value) => {
