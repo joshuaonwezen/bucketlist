@@ -14,6 +14,7 @@
 	import { checkedAnswers, details, score } from '../stores';
 	import { onMount } from 'svelte';
 	import Modals from '$lib/modals.svelte';
+	import supabase from '$lib/db';
 
 	export let categories;
 
@@ -27,19 +28,29 @@
 	//Sum up all the values of the selected inputs
 	const calculateScore = () => {
 		$score = 0;
-		for (const answer in $checkedAnswers) {
-			$score += parseInt(
-				document
-					.querySelector(`input[value="${$checkedAnswers[answer]}"]`)
-					.getAttribute('data-value')
-			);
-		}
+		$checkedAnswers.map(
+			(answer) =>
+				($score += parseInt(
+					document.querySelector(`input[value="${answer}"]`).getAttribute('data-value')
+				))
+		);
+
+		postResults();
 		return $score;
 	};
 
 	//Transforms question to id format
 	const transformToId = (value) => {
 		return value.toLowerCase().replace(/\//g, '').replace(/ +/g, '-');
+	};
+
+	//Post results to db
+	const postResults = async () => {
+		const results = await supabase
+			.from('results')
+			.insert([{ gender: $details.gender, age: $details.age, score: $score }])
+			.execute();
+		console.log(results);
 	};
 
 	// const addToAnswers = (e, value) => {
@@ -54,13 +65,9 @@
 <Modals />
 
 <div class="card text-center shadow-2xl bg-secondary bg-opacity-10 m-2 lg:mb-7 lg:mt-7">
-	<h1 class="card-title mt-7 mb-0 text-3xl font-semibold">
-		🍆 Rules 🍑
-	</h1>
+	<h1 class="card-title mt-7 mb-0 text-3xl font-semibold">🍆 Rules 🍑</h1>
 	<div class="card-body flex flex-row flex-wrap">
-		<p>
-			 Sex is defined as masturbating, oral sex  or penetration with another person.  💦
-		</p>
+		<p>Sex is defined as masturbating, oral sex or penetration with another person. 💦</p>
 	</div>
 </div>
 {#each categories as { name, question }}
@@ -91,7 +98,9 @@
 <footer
 	class="text-center fixed left-0 bottom-0 w-full p-3 shadow-lg bg-neutral text-neutral-content"
 >
-	<label for="result-modal" class="btn btn-primary modal-button text-white" on:click={calculateScore}
-		>Calculate Score</label
+	<label
+		for="result-modal"
+		class="btn btn-primary modal-button text-white"
+		on:click={calculateScore}>Calculate Score</label
 	>
 </footer>
