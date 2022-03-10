@@ -38,9 +38,9 @@
 					document.querySelector(`input[value="${answer}"]`).getAttribute('data-value')
 				))
 		);
-
-		getScores();
+		
 		postResults();
+		getScores();
 
 		return score;
 	};
