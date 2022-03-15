@@ -2,6 +2,8 @@
 	import { details, score, averageScore, editDetails } from '../stores';
 	import { onMount } from 'svelte';
 
+	export let miscs;
+
 	onMount(async () => {
 		//Set localStorage onMount as it doesn't exist until DOM is initialized
 		details.useLocalStorage();
@@ -16,7 +18,7 @@
 	<div class="card bg-base-100 shadow-xl image image-full">
 		<figure>
 			<img
-				src="https://images.photowall.com/products/52977/bengal-tiger.jpg?h=250&q=85"
+				src={miscs.resultsImage.url}
 				alt="Tiger"
 			/>
 		</figure>
@@ -41,7 +43,7 @@
 	<div class="card bg-base-100 shadow-xl image image-full">
 		<figure>
 			<img
-				src="https://t4.ftcdn.net/jpg/02/67/83/35/360_F_267833517_zd0boUNvOwNCZerHtoln2lIqt5flFsg4.jpg"
+				src={miscs.detailsImage.url}
 				alt="Tiger"
 				class="max-h-[300px]"
 				width="250px"

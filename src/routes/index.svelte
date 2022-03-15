@@ -1,22 +1,29 @@
-<script context="module">
+<script lang="ts" context="module">
 	export const load = async ({ fetch }) => {
-		const res = await fetch(`/categories.json`);
+		const res = await fetch(`/home.json`);
 		if (res.ok) {
-			const { categories } = await res.json();
+			const { categories, miscs } = await res.json();
 			return {
-				props: { categories }
+				props: { categories, miscs }
 			};
 		}
 	};
 </script>
 
-<script>
+<script lang="ts">
 	import { checkedAnswers, details, score, averageScore } from '../stores';
 	import { onMount } from 'svelte';
 	import Modals from '$lib/modals.svelte';
 	import supabase from '$lib/db';
 
-	export let categories;
+	//Models
+	import type { Asset } from '$lib/interfaces/asset.interface';
+	import type { Question } from '$lib/interfaces/question.interface';
+	import type { Category } from '$lib/interfaces/category.interface';
+	import type { Misc } from '$lib/interfaces/misc.interface';
+
+	export let categories: Category[];
+	export let miscs: Misc;
 
 	onMount(async () => {
 		//Set localStorage onMount as it doesn't exist until DOM is initialized
@@ -24,7 +31,7 @@
 		details.useLocalStorage();
 		score.useLocalStorage();
 
-		//Weird fix for fetch bug
+		//Weird fix for fetch bug in svelte
 		fetch = window.fetch.bind(window);
 	});
 
@@ -83,12 +90,12 @@
 	<title>Tigerpoints</title>
 </svelte:head>
 
-<Modals />
+<Modals miscs={miscs[0]}/>
 
 <div class="card text-center shadow-2xl bg-secondary bg-opacity-10 m-2 lg:mb-7 lg:mt-7">
 	<h1 class="card-title mt-7 mb-0 text-3xl font-semibold">🍆 Rules 🍑</h1>
 	<div class="card-body flex flex-row flex-wrap">
-		<p>Sex is defined as masturbating, oral sex or penetration with another person. 💦</p>
+		<p>{miscs[0].rules}</p>
 	</div>
 </div>
 {#each categories as { name, question }}
