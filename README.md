@@ -1,3 +1,16 @@
+# https://bucketlist-joshuaonwezen.vercel.app/
+# Created with:
+- Svelte/SvelteKit
+- TypeScript
+- TailwindCSS
+- DaisyUI
+- Jest
+- GraphQL/GraphCMS
+- Supabase
+
+
+
+
 # create-svelte
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte);
