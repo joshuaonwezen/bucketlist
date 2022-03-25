@@ -19,15 +19,15 @@
 		<figure>
 			<img
 				src={miscs.resultsImage.url}
-				alt="Tiger"
+				alt="Travel"
 			/>
 		</figure>
 		<div class="card-body">
-			<h3 class="font-bold text-lg">Keep it up 🐯</h3>
-			<p class="py-4">You have {$score} tigerpoints.</p>
+			<h3 class="font-bold text-lg">Keep it up ✈️</h3>
+			<p class="py-4">You have {$score} bucketlist points.</p>
 			<p class="py-4">The average score for your gender is {$averageScore}</p>
 			<div class="modal-action h-full items-end">
-				<label for="result-modal" class="btn">Click here for hot singles near you!</label>
+				<label for="result-modal" class="btn bg-primary">Continue</label>
 			</div>
 		</div>
 	</div>
@@ -44,7 +44,7 @@
 		<figure>
 			<img
 				src={miscs.detailsImage.url}
-				alt="Tiger"
+				alt="Travel"
 				class="max-h-[300px]"
 				width="250px"
 			/>
@@ -84,10 +84,10 @@
 				max="100"
 				bind:value={$details.age}
 				placeholder="Age"
-				class="input input-bordered input-secondary w-full min-h-[48px] max-w-xs"
+				class="input input-bordered input-primary text-black w-full min-h-[48px] max-w-xs"
 			/>
 			<div class="modal-action h-full items-end">
-				<label for="details-modal" class="btn">Continue!</label>
+				<label for="details-modal" class="btn bg-primary">Continue</label>
 			</div>
 		</div>
 	</div>

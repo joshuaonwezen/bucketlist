@@ -25,20 +25,20 @@
 			</label>
 			<ul
 				tabindex="0"
-				class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-44 text-left"
+				class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-44 text-left  text-black"
 			>
 				<li>
-					<a href={`/`} class="btn btn-ghost btn-sm rounded-btn h-auto justify-start"> Home </a>
+					<a href={`/`} class="btn btn-ghost btn-sm rounded-btn h-auto justify-start  text-black"> Home </a>
 				</li>
 				{#each pages as { title, slug }}
 					<li>
-						<a href={`/${slug}`} class="btn btn-ghost btn-sm rounded-btn h-auto justify-start">
+						<a href={`/${slug}`} class="btn btn-ghost btn-sm rounded-btn h-auto justify-start  text-black">
 							{title}
 						</a>
 					</li>
 				{/each}
 				<li>
-					<a class="btn btn-ghost btn-sm rounded-btn modal-button h-auto justify-start">
+					<a class="btn btn-ghost btn-sm rounded-btn modal-button h-auto justify-start  text-black">
 						<label for="details-modal" on:click={($editDetails = true)}>Edit details</label>
 					</a>
 				</li>
@@ -47,12 +47,12 @@
 	</div>
 
 	<div class="navbar-center lg:hidden">
-		<span class="font-extrabold text-accent text-2xl"> 🐯 Tigerpoints </span>
+		<span class="font-extrabold text-accent text-2xl"> ✈️ Bucketlist </span>
 	</div>
 
 	<!-- DESKTOP -->
 	<div class="hidden px-2 mx-2 navbar-start lg:block">
-		<span class="font-extrabold text-accent text-2xl"> 🐯 Tigerpoints </span>
+		<span class="font-extrabold text-accent text-2xl"> ✈️ Bucketlist </span>
 	</div>
 
 	<div class="hidden px-2 mx-2 navbar-center lg:flex">

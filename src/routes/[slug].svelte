@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-	<title>Tigerpoints</title>
+	<title>Bucketlist</title>
 </svelte:head>
 
 <h1 class="text-4xl font-semibold mb-5 m-5">{page.title}</h1>

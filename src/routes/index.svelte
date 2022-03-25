@@ -17,8 +17,6 @@
 	import supabase from '$lib/db';
 
 	//Models
-	import type { Asset } from '$lib/interfaces/asset.interface';
-	import type { Question } from '$lib/interfaces/question.interface';
 	import type { Category } from '$lib/interfaces/category.interface';
 	import type { Misc } from '$lib/interfaces/misc.interface';
 
@@ -32,6 +30,7 @@
 		score.useLocalStorage();
 
 		//Weird fix for fetch bug in svelte
+		// @ts-ignore
 		fetch = window.fetch.bind(window);
 	});
 
@@ -59,7 +58,7 @@
 	//Get scores from same gender from db
 	const getScores = async () => {
 		let { data: results, error } = await supabase
-			.from('results')
+			.from('results-bucketlist')
 			.select('score')
 			.eq('gender', $details.gender);
 
@@ -77,7 +76,7 @@
 	//Post results to db
 	const postResults = async () => {
 		const { data, error } = await supabase
-			.from('results')
+			.from('results-bucketlist')
 			.insert([{ gender: $details.gender, age: $details.age, score: $score }]);
 	};
 
@@ -87,13 +86,13 @@
 </script>
 
 <svelte:head>
-	<title>Tigerpoints</title>
+	<title>Bucketlist</title>
 </svelte:head>
 
 <Modals miscs={miscs[0]}/>
 
 <div class="card text-center shadow-2xl bg-secondary bg-opacity-10 m-2 lg:mb-7 lg:mt-7">
-	<h1 class="card-title mt-7 mb-0 text-3xl font-semibold">🍆 Rules 🍑</h1>
+	<h1 class="card-title mt-7 mb-0 text-3xl font-semibold">Instructions</h1>
 	<div class="card-body flex flex-row flex-wrap">
 		<p>{miscs[0].rules}</p>
 	</div>
@@ -109,7 +108,7 @@
 					<label class="cursor-pointer flex p-1 mb-3">
 						<input
 							type="checkbox"
-							checked={$checkedAnswers.includes(transformToId(name)) ? 'checked' : ''}
+							checked={$checkedAnswers.includes(transformToId(name)) ? true : false}
 							value={transformToId(name)}
 							bind:group={$checkedAnswers}
 							data-value={value}
